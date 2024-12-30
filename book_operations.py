@@ -1,3 +1,4 @@
 from book import Book
 class BookOperations:
-    pass
+    def __init__(self):
+        self.books = []
