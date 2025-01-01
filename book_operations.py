@@ -76,3 +76,68 @@ class BookOperations:
                 Returns an empty list if no books are found.
         """
         return [i for i, book in enumerate(self.books) if title.lower() in book.title.lower()]
+
+    def author_search(self, author: str) -> list:
+        """
+        Searches for books by their author and returns their indices.
+
+        Parameters:
+            author (str): The author of the book to search for.
+
+        Returns:
+            list: A list of indices of books that match the given author.
+                Returns an empty list if no books are found.
+        """
+        return [i for i, book in enumerate(self.books) if author.lower() in book.author.lower()]
+    
+    def genre_search(self, genre: str) -> list:
+        """
+        Searches for books by their genre and returns their indices.
+
+        Parameters:
+            genre (str): The genre of the book to search for.
+
+        Returns:
+            list: A list of indices of books that match the given genre.
+                Returns an empty list if no books are found.
+        """
+        return [i for i, book in enumerate(self.books) if genre.lower() == book.genre.lower()]
+    
+    def year_search(self, year: int) -> list:
+        """
+        Searches for books by their year of publication and returns their indices.
+
+        Parameters:
+            year (int): The year of publication of the books to search for.
+
+        Returns:
+            list: A list of indices of books that were published in the given year.
+                Returns an empty list if no books are found.
+        """
+        return [i for i, book in enumerate(self.books) if year == book.year_of_publication]
+    
+    def publisher_search(self, publisher: str) -> list:
+        """
+        Searches for books by their publisher and returns their indices.
+
+        Parameters:
+            publisher (str): The publisher of the book to search for.
+
+        Returns:
+            list: A list of indices of books that match the given publisher.
+                Returns an empty list if no books are found.
+        """
+        return [i for i, book in enumerate(self.books) if publisher.lower() in book.publisher.lower()]
+    
+    def language_search(self, language: str) -> list:
+        """
+        Searches for books by their language and returns their indices.
+
+        Parameters:
+            language (str): The language of the book to search for.
+
+        Returns:
+            list: A list of indices of books that match the given language.
+                Returns an empty list if no books are found.
+        """
+        return [i for i, book in enumerate(self.books) if language.lower() == book.language.lower()]
