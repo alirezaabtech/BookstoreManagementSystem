@@ -75,4 +75,4 @@ class BookOperations:
             list: A list of indices of books that match the given title.
                 Returns an empty list if no books are found.
         """
-        return [i for i, book in enumerate(self.books) if title.lower() == book.title.lower()]
+        return [i for i, book in enumerate(self.books) if title.lower() in book.title.lower()]
