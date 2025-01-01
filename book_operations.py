@@ -63,3 +63,16 @@ class BookOperations:
                 self.books.remove(book)
                 return f"Book '{title}' by {author} deleted successfully."
         return f"Book '{title}' by {author} not found."
+    
+    def title_search(self, title: str) -> list:
+        """
+        Searches for books by their title and returns their indices.
+
+        Parameters:
+            title (str): The title of the book to search for.
+
+        Returns:
+            list: A list of indices of books that match the given title.
+                Returns an empty list if no books are found.
+        """
+        return [i for i, book in enumerate(self.books) if title.lower() == book.title.lower()]
