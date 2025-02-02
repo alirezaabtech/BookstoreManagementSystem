@@ -45,7 +45,7 @@ class BookOperations:
         book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity)
         self.books.append(book)
 
-    def delete_book(self, title: str, author: str) -> str:
+    def delete_book(self, title: str, author: str) -> list:
         """
         Deletes a book from the collection.
 
@@ -54,13 +54,15 @@ class BookOperations:
             author (str): The author of the book to delete.
 
         Returns:
-            str: A message indicating whether the book was successfully deleted or not found.
+            list: A list of indices of the books that were deleted.
+                Returns an empty list if no books were deleted.
         """
-        for book in self.books:
+        list_of_books = []
+        for i, book in enumerate(self.books):
             if title == book.title and author == book.author:
+                list_of_books.append(i)
                 self.books.remove(book)
-                return f"Book '{title}' by {author} deleted successfully."
-        return f"Book '{title}' by {author} not found."
+        return list_of_books
     
     def title_search(self, title: str) -> list:
         """
