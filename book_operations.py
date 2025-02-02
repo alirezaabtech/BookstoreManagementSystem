@@ -36,30 +36,28 @@ class BookOperations:
             stock_quantity (int): The quantity of the book available in stock.
 
         Notes:
-            A unique identifier (id) is automatically generated for each book 
             using the UUID library.
             
         Returns:
             None
         """
-        id = int(uuid.uuid4().int % 1e15)
-        book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity,id)
+        # id = int(uuid.uuid4().int % 1e15)
+        book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity)
         self.books.append(book)
 
-    def delete_book(self, title: str, author: str, id: int) -> str:
+    def delete_book(self, title: str, author: str) -> str:
         """
         Deletes a book from the collection.
 
         Parameters:
             title (str): The title of the book to delete.
             author (str): The author of the book to delete.
-            id (int): The unique identifier of the book to delete.
 
         Returns:
             str: A message indicating whether the book was successfully deleted or not found.
         """
         for book in self.books:
-            if title == book.title and author == book.author and id == book.id:
+            if title == book.title and author == book.author:
                 self.books.remove(book)
                 return f"Book '{title}' by {author} deleted successfully."
         return f"Book '{title}' by {author} not found."
