@@ -8,7 +8,9 @@ class Book:
              page_count: int, 
              language: str, 
              price: float, 
-             stock_quantity: int) -> None:
+             stock_quantity: int,
+             id: int,
+             show: bool) -> None:
         """
         Initializes a new Book object.
 
@@ -33,3 +35,5 @@ class Book:
         self.language = language
         self.price = price
         self.stock_quantity = stock_quantity
+        self.id = id
+        self.show = show
