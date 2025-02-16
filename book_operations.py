@@ -1,4 +1,3 @@
-# import uuid
 from book import Book
 class BookOperations:
     
@@ -20,7 +19,8 @@ class BookOperations:
              page_count: int, 
              language: str, 
              price: float, 
-             stock_quantity: int) -> None:
+             stock_quantity: int,
+             show: bool) -> None:
         """
         Adds a new book to the collection.
 
@@ -34,35 +34,33 @@ class BookOperations:
             language (str): The language the book is written in.
             price (float): The price of the book.
             stock_quantity (int): The quantity of the book available in stock.
-
-        Notes:
-            using the UUID library.
+            id (int): The unique identifier of the book.
             
         Returns:
             None
         """
-        # id = int(uuid.uuid4().int % 1e15)
-        book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity)
+        id = len(self.books) + 1
+        book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity,show)
         self.books.append(book)
 
-    def delete_book(self, title: str, author: str) -> list:
-        """
-        Deletes a book from the collection.
+    # def delete_book(self, title: str, author: str) -> list:
+    #     """
+    #     Deletes a book from the collection.
 
-        Parameters:
-            title (str): The title of the book to delete.
-            author (str): The author of the book to delete.
+    #     Parameters:
+    #         title (str): The title of the book to delete.
+    #         author (str): The author of the book to delete.
 
-        Returns:
-            list: A list of indices of the books that were deleted.
-                Returns an empty list if no books were deleted.
-        """
-        list_of_books = []
-        for i, book in enumerate(self.books):
-            if title == book.title and author == book.author:
-                list_of_books.append(i)
-                self.books.remove(book)
-        return list_of_books
+    #     Returns:
+    #         list: A list of indices of the books that were deleted.
+    #             Returns an empty list if no books were deleted.
+    #     """
+    #     list_of_books = []
+    #     for i, book in enumerate(self.books):
+    #         if title == book.title and author == book.author:
+    #             list_of_books.append(i)
+    #             self.books.remove(book)
+    #     return list_of_books
     
     def title_search(self, title: str) -> list:
         """
