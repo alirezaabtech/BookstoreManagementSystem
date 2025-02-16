@@ -41,7 +41,53 @@ class BookOperations:
         """
         id = len(self.books) + 1
         book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity,show)
-        self.books.append(book)
+        self.books.append(book) 
+
+    def update_book(self,
+             index: int,
+             title: str, 
+             author: str, 
+             genre: str, 
+             year_of_publication: int, 
+             publisher: str, 
+             page_count: int, 
+             language: str, 
+             price: float, 
+             stock_quantity: int,
+             show: bool) -> None:
+        """
+        Updates all attributes of an existing book in the collection.
+
+        Parameters:
+            index (int): The index of the book in the collection.
+            title (str): The new title of the book.
+            author (str): The new author of the book.
+            genre (str): The new genre of the book.
+            year_of_publication (int): The new year the book was published.
+            publisher (str): The new publisher of the book.
+            page_count (int): The new total number of pages in the book.
+            language (str): The new language the book is written in.
+            price (float): The new price of the book.
+            stock_quantity (int): The new quantity of the book available in stock.
+            show (bool): Determines whether the book is visible to users.
+
+        Returns:
+            None
+        
+        Example:
+        >>> library.update_book(0, "1984", "George Orwell", "Dystopian", 1949, "Secker & Warburg", 328, "English", 15.0, 80, True)
+        """
+        self.books[index].title = title
+        self.books[index].author = author
+        self.books[index].genre = genre
+        self.books[index].year_of_publication = year_of_publication
+        self.books[index].publisher = publisher
+        self.books[index].page_count = page_count
+        self.books[index].language = language
+        self.books[index].price = price
+        self.books[index].stock_quantity = stock_quantity
+        self.books[index].show = show
+
 
     # def delete_book(self, title: str, author: str) -> list:
     #     """
