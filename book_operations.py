@@ -39,8 +39,8 @@ class BookOperations:
         Returns:
             None
         """
-        id = len(self.books) + 1
-        book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity,show)
+        id = len(self.books) + 100000001
+        book = Book(title,author,genre,year_of_publication,publisher,page_count,language,price,stock_quantity,id,show)
         self.books.append(book) 
 
     def update_book(self,
