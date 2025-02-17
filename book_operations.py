@@ -34,7 +34,11 @@ class BookOperations:
             language (str): The language the book is written in.
             price (float): The price of the book.
             stock_quantity (int): The quantity of the book available in stock.
-            id (int): The unique identifier of the book.
+            shwo (bool): Determines whether the book is visible to users.
+        
+        Note:
+            The unique identifier (id) for the book is automatically generated based on 
+            the current number of books in the collection.
             
         Returns:
             None
@@ -185,3 +189,35 @@ class BookOperations:
                 Returns an empty list if no books are found.
         """
         return [i for i, book in enumerate(self.books) if language.lower() == book.language.lower()]
+
+    def increase_stock(self,book_id: int ,amount: int) -> None:
+        """
+        Increases the stock quantity of a specific book.
+
+        Parameters:
+            book_id (int): The unique identifier of the book.
+            amount (int): The number of copies to add to the stock.
+
+        Returns:
+            None
+        """
+        for i, book in enumerate(self.books):
+            if book_id == book.id:
+                self.books[i].stock_quantity += amount
+                return
+
+    def decrease_stock(self,book_id: int ,amount: int) -> None:
+        """ 
+        Decreases the stock quantity of a specific book.
+
+        Parameters:
+            book_id (int): The unique identifier of the book.
+            amount (int): The number of copies to remove from the stock.
+
+        Returns:
+            None
+        """
+        for i, book in enumerate(self.books):
+            if book_id == book.id:
+                self.books[i].stock_quantity -= amount
+                return
